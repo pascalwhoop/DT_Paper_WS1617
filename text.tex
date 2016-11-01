@@ -1,0 +1,70 @@
+\begin{abstract}% max 150 words
+!!!TODO!!! %TODO
+\end{abstract}
+
+%\begin{IEEEkeywords}
+% a, b, c
+%\end{IEEEkeywords}
+
+\section{Introduction}\label{Introduction}
+
+Software development has adapted the concept of social coding and pull based software development through platforms like Github which provides a platform for some of the biggest \ac{OSS} projects existing. Projects like Ruby, NodeJS, Bootstrap, Angular or the Java Spring Framework are publicly hosted on Github with some of them having thousands of followers and contributors \cite{Gousi13}. Open Source software development has been described as meritocracies \cite{Scacchi:2007:FSS:1295014.1295019}, however recent research has identified social factors to influence decisions of project managers regarding the acceptance of contributions by others \cite{Tsay:2014:IST:2568225.2568315}. Inevitably, a social coding environment such as Github is accompanied with social interaction that influences project progress.
+
+An obvious factor in social interaction is gender. Sociology research has shown that women are being treated unequal in professional environments !!!GOOD CITE NEEDED!!! %TODO cite
+and more specifically \ac{OSS} projects have been shown to exhibit sexist behavior. About 1.5\% of the total number of members in communities of \emph{'\ac{F/LOSS}'} were determined to be female compared to 28\% in proprietary software as determined in a 2005 report by the University of Cambridge \cite{flosspols-gender:2005}. More current research shows a percentage of about 9\% female users on Github \cite{Vasilescu:2015:GTD:2702123.2702549}. Since \citeauthor{Tsay:2014:IST:2568225.2568315} found that project managers use social cues to evaluate contributions and \citeauthor{Vasilescu:2015:GTD:2702123.2702549} found that almost half of the project members are aware of other users gender, the effect of the perceived gender on this contribution process can be of interest in the ongoing debate of gender inequality. 
+
+\citeauthor{Vasilescu:2015:GTD:2702123.2702549} showed that project teams with increased gender diversity perform better than those being entirely male, however women are underrepresented in \ac{OSS} teams. It would therefore be rational for teams to recruit those rare female Github users to improve their productivity.
+
+These factors, the underrepresentation of women on Github, the observed sexist behavior within \ac{OSS} communities as well as the social influences on decisions that were believed to be purely lead by meritocratic reasoning raise the following question:
+
+\emph{How does the perceived gender affect the evaluation of contributions by members in a public social coding environment such as Github?}
+
+%\emph{Are the evaluations of contributions by members on Github influenced by perceived gender }
+
+ \citeauthor{Tsay:2014:IST:2568225.2568315}
+
+\subsection{Data Preparation}
+
+\begin{enumerate}
+	\item downloading data from GHTorrent
+	\item clean all unneeded fields from documents to reduce file size
+	\begin{itemize}
+		\item remove forks \cite{Gousios:2014:ESP:2568225.2568260}
+		\item
+		\item Repos before removing forks: 30713080
+		\item Repos after removing forks:
+		\item remove repos without at least 1 fork
+		\item repos before:
+		\item repos after:
+	\end{itemize}
+	\item determine gender of users
+	\item remove inactive users
+	\item filter through repositories, deleting inactive or small ones \cite{Gousios:2014:ESP:2568225.2568260}
+	\item (select biggest repositories)
+\end{enumerate}
+
+
+\begin{lstlisting}
+//remove all forked repositories
+db.repos.remove({fork: true}, false)
+//remove all repositories that have no forks (and therefore no chance for pull requests)
+db.repos.remove(\{forks: \{: 1\}\}, false)
+\end{lstlisting}
+
+\section{Data Processing} % (fold)
+\label{sec:data_processing}
+
+% section data_processing (end)
+
+\begin{enumerate}
+	\item iterate over pull requests
+	\item for each: determine if accepted / rejected
+\end{enumerate}
+
+
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+
+\section{Conclusion}\label{Conclusion}

@@ -1,0 +1,49 @@
+\documentclass[10pt, conference, compsoc]{IEEEtran}
+%bibliography style
+\usepackage[numbers]{natbib}
+
+% input encoding
+\usepackage[utf8]{inputenc}
+
+% PDF figures
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf}
+
+% additional packages
+\usepackage{url}
+
+% set PDF version to 1.6
+\pdfminorversion=6
+
+%acronyms
+\usepackage[printonlyused,withpage]{acronym}
+
+
+% http://texblog.org/2011/02/26/generating-dummy-textblindtext-with-latex-for-testing/
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+%listings (code blocks)
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\lstset{ %
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+% breakatwhitespace=true,          % sets if automatic breaks should only happen at whitespace
+  breakindent=1em,
+  breaklines=true,                 % sets automatic line breaking
+  commentstyle=\color{mygreen},  % comment style
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  %keywordstyle=\color{blue},       % keyword style
+  %linewidth=\textwidth,
+  %morekeywords={*,...},            % if you want to add more keywords to the set
+  %numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  %numbersep=5pt,                   % how far the line-numbers are from the code
+  %numberstyle=\tiny\color{gray},   % the style that is used for the line-numbers
+  showlines=true,
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  %stringstyle=\color{red},         % string literal style
+  %tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
