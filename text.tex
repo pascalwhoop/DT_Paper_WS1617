@@ -8,18 +8,40 @@
 
 \section{Introduction}\label{Introduction}
 
-Software development has adapted the concept of social coding and pull based software development through platforms like Github which provides a platform for some of the biggest \ac{OSS} projects existing. Projects like Ruby, NodeJS, Bootstrap, Angular or the Java Spring Framework are publicly hosted on Github with some of them having thousands of followers and contributors \cite{Gousi13}. Open Source software development has been described as meritocracies \cite{Scacchi:2007:FSS:1295014.1295019}, however recent research has identified social factors to influence decisions of project managers regarding the acceptance of contributions by others \cite{Tsay:2014:IST:2568225.2568315}. Inevitably, a social coding environment such as Github is accompanied with social interaction that influences project progress.
+Software development has adapted the concept of social coding and pull based software development through platforms like Github which provides a platform for some of the biggest \ac{OSS} projects existing. Projects like Ruby, NodeJS, Bootstrap, Angular or the Java Spring Framework are publicly hosted with some of them having thousands of followers and contributors \cite{Gousi13}. Open Source software development has been described as meritocracies \cite{Scacchi:2007:FSS:1295014.1295019}, however recent research has identified social factors to influence decisions of project managers regarding the acceptance of contributions by others \cite{Tsay:2014:IST:2568225.2568315}. Inevitably, a social coding environment such as Github is accompanied with social interaction that influences project progress.
 
 An obvious factor in social interaction is gender. Sociology research has shown that women are being treated unequal in professional environments !!!GOOD CITE NEEDED!!! %TODO cite
-and more specifically \ac{OSS} projects have been shown to exhibit sexist behavior. About 1.5\% of the total number of members in communities of \emph{'\ac{F/LOSS}'} were determined to be female compared to 28\% in proprietary software as determined in a 2005 report by the University of Cambridge \cite{flosspols-gender:2005}. More current research shows a percentage of about 9\% female users on Github \cite{Vasilescu:2015:GTD:2702123.2702549}. Since \citeauthor{Tsay:2014:IST:2568225.2568315} found that project managers use social cues to evaluate contributions and \citeauthor{Vasilescu:2015:GTD:2702123.2702549} found that almost half of the project members are aware of other users gender, the effect of the perceived gender on this contribution process can be of interest in the ongoing debate of gender inequality. 
-
-\citeauthor{Vasilescu:2015:GTD:2702123.2702549} showed that project teams with increased gender diversity perform better than those being entirely male, however women are underrepresented in \ac{OSS} teams. It would therefore be rational for teams to recruit those rare female Github users to improve their productivity.
+and more specifically \ac{OSS} projects have been shown to exhibit sexist behavior. About 1.5\% of the total number of members in communities of \emph{'\ac{F/LOSS}'} were determined to be female compared to 28\% in proprietary software as determined in a 2005 report by the University of Cambridge \cite{flosspols-gender:2005}. More current research shows a percentage of about 9\% female users on Github \cite{Vasilescu:2015:GTD:2702123.2702549}. Since
+\citeauthor{Tsay:2014:IST:2568225.2568315} found that project managers use social cues to evaluate contributions and \citeauthor{Vasilescu:2015:GTD:2702123.2702549} found that almost half of the project members are aware of other users gender, the effect of the perceived gender on this contribution process can be of interest in the ongoing debate of gender inequality.
 
 These factors, the underrepresentation of women on Github, the observed sexist behavior within \ac{OSS} communities as well as the social influences on decisions that were believed to be purely lead by meritocratic reasoning raise the following question:
 
 \emph{How does the perceived gender affect the evaluation of contributions by members in a public social coding environment such as Github?}
 
+%Method, process explaination
+\subsection{Method and expected results}
+
+In order to answer the research question, three subtasks can be identified that need to be completed in order for the question to be answered adequately
+\begin{itemize}
+    \item How can the perceived gender for each user be determined? What is the perceived gender for each user?
+    \item When is a contribution considered to be accepted? When is it considered to be rejected?
+    \item Is a correlation existing between gender of the contributor and the contribution evaluation result? Can causal identification be achieved?%TODO "causal identification?" sounds shitty
+\end{itemize}
+
+The first two tasks need to be resolved using proper technical analysis of the data and using data such as followers as proxies for social standing and network embeddedness. The last task is reliant on the results of the first two as well as the methods available to us to achieve causal identification such as \ac{RCA}. While a simple correlation would already be of interest, discovering a causal effect would be more satisfying.
+
+To analyze the data, the GHTorrent !!CITE!! dataset is used, which allows the execution of queries against a huge dataset of all repositories, users, pull-requests, comments and issues on Github since 2013. The dataset included over 14 million users and 13 million pull requests in November 2016 although the number of relevant users is expected to be much lower since the distribution of active users is a long tail distribution with very few active users and many inactive or abandoned accounts. Nonetheless, the scale of the dataset allows for thorough data preprocessing without loosing too many potential entries for the analysis afterwards.
+
+To determine the perceived gender, the genderComputer by \citeauthor{vasilescu:2012:6542459} will be used. This algorithm uses several heuristics such as the origin/country of the user as well as common name patterns and a big name-gender dictionary to infer the gender from a given user. It has a reported success rate of about 32\% \cite{Vasilescu:2015:GTD:2702123.2702549}.
+
+To rate the evaluation of a contribution, we consider a merged \ac{PR} to be an accepted contribution and a closed but not merged \ac{PR} to be a rejected contribution. Since \ac{PR} are hard to determine as either merged or not merged however, this information will have to be resolved by investigating the repositories commit history and comparing the commit IDs of the \ac{PR} with the commit IDs of the repository itself. If the \ac{PR} contains commit IDs that are also present in the repository itself, the PR can be considered merged. If they are not included, the \ac{PR} can be considered rejected \cite{Vasilescu:2015:GTD:2702123.2702549}..
+%\citeauthor{Vasilescu:2015:GTD:2702123.2702549} showed that project teams with increased gender diversity perform better than those being entirely male, however women are underrepresented in \ac{OSS} teams. It would therefore be rational for teams to recruit those rare female Github users to improve their productivity.
+
 %\emph{Are the evaluations of contributions by members on Github influenced by perceived gender }
+
+%snippet
+%The result of either a positive of negative influence of gender on the evaluation decision as well as the tendency for users to follow or star one gender more frequently than another can lead to
+%snippet END
 
  \citeauthor{Tsay:2014:IST:2568225.2568315}
 
